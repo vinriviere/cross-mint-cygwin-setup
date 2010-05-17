@@ -1,0 +1,12 @@
+This bundle contains several binary packages. Each one is provided to you through its own license, including:
+- The GNU General Public License
+- The GNU Lesser General Public License
+- The MiNTlib Project License
+- Other Free Software licenses
+
+By using this software, you agree to these licenses. You are allowed to redistribute this bundle as long as you respect the licenses. Especially, for most packages, you must also redistribute the source code, or provide some access to it.
+
+The source code for this bundle and the included binary packages is available here:
+http://vincent.riviere.free.fr/soft/m68k-atari-mint/
+
+This bundle contains cross-compiler tools. They can be used freely to produce your own software. If you plan to redistribute your own software in binary form, be sure to respect the licenses of the libraries you have embedded into your binaries.
