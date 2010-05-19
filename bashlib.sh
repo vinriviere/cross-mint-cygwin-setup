@@ -79,9 +79,11 @@ then
   exit 2
 fi
 
-# The config file is not automatically loaded with non-login shells.
-# BUG: The installation will fail if the config file changes the current directory.
+# Since we are not in a login shell, we have to source the config files manually.
+INITIAL_CURRENT_DIRECTORY="$PWD"
+[ -f /etc/profile ] && . /etc/profile # This will create $CONFIG_FILE if $HOME does not exist yet
 [ -f $CONFIG_FILE ] && . $CONFIG_FILE
+cd "$INITIAL_CURRENT_DIRECTORY"
 
 # Execute the function and arguments passed on the command line
 "$@"
