@@ -103,7 +103,7 @@ InstType Minimal
   nsExec::ExecToStack '"$cygwinHome\bin\${command}.exe" ${args}'
   Pop ${retvar}
   Pop ${ouputvar}
-  
+
   # Remove the Line Feed character
   # BUG: This fails if the last character is not a Line Feed
   StrLen $R0 ${ouputvar}
@@ -233,7 +233,7 @@ Function CygwinRequirementsPageCreator
   ${EndIf}
   !insertmacro AppendNamedLabel "Cygwin home" $cygwinHome
   !insertmacro PageNewLine
-  
+
   # Check if the Cygwin home is valid
   ${IfNot} ${FileExists} $cygwinHome\bin\cygwin1.dll
     !insertmacro AppendLabel ${LABEL_HEIGHT_X2} "This Cygwin installation directory is invalid.$\nPlease reinstall Cygwin, then start this installation again."
@@ -294,13 +294,13 @@ Function InstallDirPageCreator
     Quit
   ${EndIf}
   !insertmacro AppendLabel ${LABEL_HEIGHT_X2} "It corresponds to the Windows directory $winInstallDir."
-  
+
   !insertmacro AppendLabel ${LABEL_HEIGHT_X3} "If you want to completely uninstall the cross-tools, you just have to remove manually the directory above. There is no uninstaller."
-  
+
   ${If} ${FileExists} $winInstallDir
     !insertmacro AppendLabel ${LABEL_HEIGHT_X4} "Warning: The directory $winInstallDir currently exists.$\nIf you continue this installation process, it will be automatically deleted with the third-party libraries you may have installed into it."
   ${EndIf}
-  
+
   nsDialogs::Show
 FunctionEnd
 
@@ -308,7 +308,7 @@ Function InstallDirPageLeave
   ${If} ${FileExists} $winInstallDir
     MessageBox MB_ICONEXCLAMATION|MB_YESNO "The installation directory $winInstallDir currently exists.$\nDo you want to remove it automatically, and lose any additional library you may have installed into it ?" IDYES +2
     Abort
-     
+
     !insertmacro AppendLabel ${LABEL_HEIGHT} "Cleaning $winInstallDir, please wait..."
 
     # Disable the Next button to prevent the user from clicking on it while RMDir is in progress
@@ -351,13 +351,13 @@ Function VariablesPageCreator
   !insertmacro CreateCustomPage
   ShowWindow $0 ${SW_SHOW} # Display the window now to see the progression of the tests
   !insertmacro PageResetLine
-  
+
   !insertmacro AppendLabel ${LABEL_HEIGHT} "Checking environment variables..."
   !insertmacro PageNewLine
 
   Var /GLOBAL variablesFixingNeeded
   StrCpy $variablesFixingNeeded 0
-  
+
   !insertmacro CheckShellVariable PATH isPathOk
   !insertmacro CheckShellVariable MANPATH isManpathOk
 
@@ -376,10 +376,10 @@ Function VariablesPageLeave
   ${If} $variablesFixingNeeded == 0
     Return
   ${EndIf}
-  
+
   MessageBox MB_ICONQUESTION|MB_YESNO "Would you like to automatically fix your ~/.bash_profile file with the missing environment variables ?" IDYES +2
   Return
-      
+
   !insertmacro RunBashLibFunction $0 fixConfigFile
   ${If} $0 != 0
     MessageBox MB_OK|MB_ICONSTOP "Unable to fix the environment variables."
