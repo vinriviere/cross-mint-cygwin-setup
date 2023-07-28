@@ -81,7 +81,7 @@ InstType Minimal
 
 ############################################################################
 
-# Set an environment variable for the current process and its future childs
+# Set an environment variable for the current process and its future children
 !macro SetEnvironmentVariable name value
     System::Call "kernel32::SetEnvironmentVariableW(t '${name}', t '${value}') i.r0"
 !macroend
