@@ -1,7 +1,7 @@
 #!/bin/bash
-# This file contains helper functions for the cross-mint installer
+# This file contains helper functions for the cross-mintelf installer
 
-INSTALL_DIR=/opt/cross-mint
+INSTALL_DIR=/opt/cross-mintelf
 BIN_DIR=$INSTALL_DIR/bin
 MAN_DIR=$INSTALL_DIR/share/man
 CONFIG_FILE=~/.bash_profile
@@ -59,7 +59,7 @@ function isManpathOk
 function printFixCommands
 {
   echo
-  echo "# Automatically added by the cross-mint setup program"
+  echo "# Automatically added by the cross-mintelf setup program"
   ! isPathOk && printShellListVariableAppend PATH $BIN_DIR
   ! isManpathOk && printShellListVariableAppend MANPATH $MAN_DIR
   return 0
