@@ -1,0 +1,3 @@
+*.txt text working-tree-encoding=CP1252 eol=crlf
+*.nsi text working-tree-encoding=CP1252 eol=crlf
+.gitattributes export-ignore

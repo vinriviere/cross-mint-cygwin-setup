@@ -1,6 +1,6 @@
 ############################################################################
 # This is the source file for the installer of the MiNT Cross Tools for Cygwin.
-# Written by Vincent Rivière.
+# Written by Vincent RiviÃ¨re.
 #
 # This source is intended to be compiled with Nullsoft NSIS 3.06.1.
 # You are free to use this file for any purpose. But if you rebuild the installer by yourself,
@@ -13,7 +13,7 @@
 !include x64.nsh
 
 !define PRODUCT_NAME "MiNT Cross Tools for Cygwin"
-!define COMPANY_NAME "Vincent Rivière"
+!define COMPANY_NAME "Vincent RiviÃ¨re"
 !define COMPANY_EMAIL "vincent.riviere@freesbee.fr"
 !define INSTALL_DIR /opt/cross-mint
 
@@ -506,5 +506,5 @@ VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductName" "${PRODUCT_NAME}"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "ProductVersion" "${PRODUCT_VERSION}"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "FileVersion" "${PRODUCT_VERSION}"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "FileDescription" "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "Copyright © ${THIS_YEAR} ${COMPANY_NAME}"
+VIAddVersionKey /LANG=${LANG_ENGLISH} "LegalCopyright" "Copyright Â© ${THIS_YEAR} ${COMPANY_NAME}"
 VIAddVersionKey /LANG=${LANG_ENGLISH} "CompanyName" "${COMPANY_NAME}"
