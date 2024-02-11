@@ -29,10 +29,10 @@ echo "!define PRODUCT_VERSION_DOTS 0.`date +%Y.%-m.%-d`"
 
 for f in packages/*-bin-cygwin-*
 do
-  set `echo $f |sed -e 's:^[^/]*/\([^-]*\)-\(.*\)-bin-.*:\1 \2:g'`
-  package=`echo $1 |tr '[:lower:]' '[:upper:]'`
+  set $(echo $f |sed -e 's:^[^/]*/\([^-]*\)-\(.*\)-bin-.*:\1 \2:')
+  package=$(echo $1 |tr '[:lower:]' '[:upper:]')
 
-  echo "!define ${package}_ARCHIVE `basename $f`"
+  echo "!define ${package}_ARCHIVE $(basename $f)"
   echo "!define ${package}_VERSION $2"
-  echo "!define ${package}_SIZE `UntaredSize $f`"
+  echo "!define ${package}_SIZE $(UntaredSize $f)"
 done
