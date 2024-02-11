@@ -102,7 +102,7 @@ InstType Minimal
 !macro InstallCygwinPackage package
   File packages\${${package}_ARCHIVE}
 
-  !insertmacro RunCygwinCommandToLog $0 tar "-C / -jxvf ${${package}_ARCHIVE}"
+  !insertmacro RunCygwinCommandToLog $0 tar "-C / -xvf ${${package}_ARCHIVE}"
   ${If} $0 != 0
     MessageBox MB_OK|MB_ICONSTOP "Error during installation of ${${package}_ARCHIVE}."
     Abort "Error during installation of ${${package}_ARCHIVE}."
@@ -228,14 +228,14 @@ Function CygwinRequirementsPageCreator
   !insertmacro AppendNamedLabel "Cygwin version" $1
 */
 
-  # The Cygwin bin directory is required to be in the PATH for tar being able to find bzip2
+  # The Cygwin bin directory is required to be in the PATH for tar being able to find xz
   # Note that the following line replaces the whole contents of PATH, it seems to be OK.
   !insertmacro SetEnvironmentVariable PATH $cygwinHome\bin
 
   Var /GLOBAL cygwinDependencyMissing
   StrCpy $cygwinDependencyMissing 0
 
-  !insertmacro CheckInstalledCygwinPackage bzip2
+  !insertmacro CheckInstalledCygwinPackage xz
   !insertmacro CheckInstalledCygwinPackage tar
   !insertmacro CheckInstalledCygwinPackage libiconv2
   !insertmacro CheckInstalledCygwinPackage libisl23

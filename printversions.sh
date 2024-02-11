@@ -5,7 +5,7 @@
 # Compute the untared size of a tarball
 function UntaredSize
 {
-  tar jtvf $1 | (
+  tar tvf $1 | (
     let total=0
     while read a b filesize remainder
     do
